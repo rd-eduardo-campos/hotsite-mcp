@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#002233" />
+
+  <title>Glossário de MCP e IA — em português · RD Station</title>
+  <meta name="description" content="Definições curtas dos principais termos do mundo MCP e IA: agente, tool, server, cliente, prompt, token e mais. Para você entender qualquer texto técnico sobre o assunto." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="_styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">RD Station <span class="logo-tag">· IA</span></a>
+      <nav class="nav">
+        <a href="o-que-e-mcp.html" class="nav-link">O que é MCP</a>
+        <a href="mcp-multiproduto.html" class="nav-link">Multiproduto</a>
+        <a href="skills-mcp.html" class="nav-link">Skills</a>
+        <a href="glossario.html" class="nav-link">Glossário</a>
+        <a href="https://mcp.rdstationmentor.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Conectar agora</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="page-nav">
+    <div class="container">
+      <a href="index.html">Início</a>
+      <span class="page-nav-sep">›</span>
+      <span>Glossário</span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <span class="badge badge-primary">Referência rápida</span>
+      <h1>Glossário de <em>MCP e IA</em>, em português</h1>
+      <p class="lead">Definições curtas e diretas dos termos que aparecem quando o assunto é MCP, IA e integração. Sem tecniquês — para você ler qualquer documentação ou conversa técnica sem se perder.</p>
+      <div class="hero-cta">
+        <a href="#protocolo" class="btn btn-primary">Começar pelo essencial</a>
+        <a href="o-que-e-mcp.html" class="btn-link">Ler explicação completa →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Termos essenciais -->
+  <section id="protocolo" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Os essenciais</span>
+        <h2>Os 5 termos que você precisa saber antes de qualquer coisa</h2>
+        <p class="lead-secondary">Se você entender estes cinco, consegue acompanhar qualquer conversa sobre MCP — mesmo entre desenvolvedores.</p>
+      </div>
+
+      <dl class="glossary-grid">
+        <div class="glossary-item">
+          <dt>MCP <span class="term-tag">sigla</span></dt>
+          <dd>Sigla para <strong>Model Context Protocol</strong>, em português "protocolo de contexto para modelos de IA". É o padrão criado para que IAs (Claude, ChatGPT, etc.) consigam acessar dados e executar ações em sistemas externos de forma segura e estruturada.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Servidor MCP <span class="term-tag">infra</span></dt>
+          <dd>O sistema que fica do lado do produto — no nosso caso, da RD Station — esperando os pedidos da IA. Quando você "ativa o MCP da RD", está ligando o servidor MCP da RD à sua IA. A RD Station tem três servidores: um para CRM, um para Marketing e um para Conversas.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Cliente MCP <span class="term-tag">infra</span></dt>
+          <dd>O programa que a IA usa para conversar com o servidor MCP. Quando você usa o Claude Desktop com MCP, o Claude Desktop é o cliente MCP. Outros exemplos: n8n, Make, ChatGPT (em rollout), Cursor.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Tool <span class="term-tag">capacidade</span></dt>
+          <dd>Cada ação que a IA pode executar através do MCP é uma <strong>tool</strong> (ferramenta). Criar um contato é uma tool, listar negociações é outra, inscrever em fluxo é outra. O MCP da RD Station tem 94 tools no total.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Agente de IA <span class="term-tag">conceito</span></dt>
+          <dd>Uma IA que age — não só responde. Quando a IA usa tools do MCP para executar coisas (criar, atualizar, mover), ela está agindo como agente. É a diferença entre um assistente que sugere e um operador que faz.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Termos de IA em geral -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">IA em geral</span>
+        <h2>Termos do universo da inteligência artificial</h2>
+      </div>
+
+      <dl class="glossary-grid">
+        <div class="glossary-item">
+          <dt>Modelo de IA <span class="term-tag">conceito</span></dt>
+          <dd>O "cérebro" da IA. Claude, GPT-4, Gemini e Llama são exemplos de modelos. Cada um foi treinado de forma diferente e tem habilidades específicas.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Prompt <span class="term-tag">uso</span></dt>
+          <dd>É o pedido em texto que você manda para a IA. Pode ser uma pergunta simples ("quantos leads entraram hoje?") ou uma instrução longa com regras.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Token <span class="term-tag">técnico</span></dt>
+          <dd>Unidade de medida da IA — equivale, em média, a 4 letras de texto. As IAs cobram por token processado. Pense em "tokens" como "minutos de fala" da IA.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Contexto <span class="term-tag">conceito</span></dt>
+          <dd>Tudo o que a IA "lembra" durante uma conversa. Inclui a pergunta original, as respostas anteriores e qualquer dado que foi puxado via MCP. Cada IA tem um limite de contexto (medido em tokens).</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>API <span class="term-tag">técnico</span></dt>
+          <dd>Sigla para "Application Programming Interface". É a forma "tradicional" de sistemas conversarem — exige código, chave de acesso e documentação técnica. O MCP é a evolução: faz o mesmo trabalho, mas em linguagem natural.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>LLM <span class="term-tag">sigla</span></dt>
+          <dd>Sigla para "Large Language Model" — em português, "modelo grande de linguagem". É o nome técnico para o tipo de IA que você usa no dia a dia (Claude, ChatGPT, etc.).</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Generativa <span class="term-tag">adjetivo</span></dt>
+          <dd>IA "generativa" é a que cria conteúdo novo — texto, imagem, código. Diferente de IA "preditiva", que prevê coisas (lead vai converter ou não), ou "classificatória" (esse email é spam ou não).</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Agentic / agêntico <span class="term-tag">adjetivo</span></dt>
+          <dd>IA "agêntica" é a que tem capacidade de agir, não só conversar. Ela toma decisões, executa passos e usa ferramentas (tools) para chegar ao objetivo. O MCP é o que torna a IA agêntica dentro da RD Station.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Termos do MCP -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Detalhes do MCP</span>
+        <h2>Termos técnicos que aparecem em conversas mais avançadas</h2>
+      </div>
+
+      <dl class="glossary-grid">
+        <div class="glossary-item">
+          <dt>Tool call <span class="term-tag">técnico</span></dt>
+          <dd>O momento exato em que a IA decide usar uma tool. Por exemplo: você pergunta "quantos deals abertos?", a IA reconhece e faz um "tool call" para a ferramenta <code>deals_list</code>.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Resource <span class="term-tag">conceito</span></dt>
+          <dd>É um pedaço de dado que o servidor MCP pode expor para a IA — diferente de uma tool (que executa ação). Por enquanto, a RD Station expõe principalmente tools, não resources.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Prompt template <span class="term-tag">avançado</span></dt>
+          <dd>Modelos de prompt que o servidor MCP pode oferecer para a IA usar. Por exemplo, um template "analise as 10 negociações mais paradas" que o usuário só precisa selecionar. Recurso opcional do MCP.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>OAuth <span class="term-tag">segurança</span></dt>
+          <dd>Padrão de autorização usado pelo MCP para você dar permissão à IA. É o mesmo fluxo de "Entrar com Google" que você usa em outros apps — você aprova, não compartilha senha.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>stdio / SSE / WebSocket <span class="term-tag">técnico</span></dt>
+          <dd>São formas diferentes de cliente e servidor MCP se comunicarem. Você não precisa escolher: a documentação do cliente que você usa (Claude Desktop, n8n) já configura sozinho.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Schema <span class="term-tag">técnico</span></dt>
+          <dd>É a "ficha técnica" de cada tool: o nome, o que ela faz, quais parâmetros aceita. A IA lê os schemas para decidir qual tool usar e como chamá-la.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Termos da RD Station -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">No universo RD Station</span>
+        <h2>Termos próprios da RD que você vai encontrar</h2>
+      </div>
+
+      <dl class="glossary-grid">
+        <div class="glossary-item">
+          <dt>LYNN <span class="term-tag">produto</span></dt>
+          <dd>Copiloto de IA do RD Station Marketing. Cria emails, sugere listas, otimiza envios. É a IA nativa do Marketing — funciona em conjunto com o MCP, não no lugar dele.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Rê <span class="term-tag">produto</span></dt>
+          <dd>Copiloto de IA do RD Station CRM. Atualiza negociações por voz, prioriza leads quentes, sugere próxima ação. É a IA nativa do CRM.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Agentes de IA da RD <span class="term-tag">produto</span></dt>
+          <dd>Os agentes de IA do RD Station Conversas que atendem clientes no WhatsApp em linguagem natural. Diferentes de chatbots de regra fixa: eles entendem contexto e podem usar conhecimento da empresa.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Radar GEO <span class="term-tag">ferramenta</span></dt>
+          <dd>Ferramenta gratuita da RD que mostra como a sua marca aparece nas IAs generativas (ChatGPT, Claude, Gemini). GEO é a evolução do SEO para o mundo da IA.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>mcp.rdstationmentor.com <span class="term-tag">link</span></dt>
+          <dd>O endereço oficial onde você ativa os servidores MCP da RD. É lá que você faz login, escolhe o servidor (CRM, Marketing ou Conversas) e copia a URL de conexão.</dd>
+        </div>
+        <div class="glossary-item">
+          <dt>Plano Pro <span class="term-tag">comercial</span></dt>
+          <dd>O nível de plano da RD Station em que o MCP está disponível. Inclui as 94 tools dos três servidores, sem cobrança adicional por servidor conectado.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- O que NÃO confundir -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Não confunda</span>
+        <h2>Pares de termos que parecem iguais, mas não são</h2>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Automação ≠ IA</h3>
+          <p><strong>Automação</strong> segue regras fixas: "se A acontecer, faça B". <strong>IA</strong> entende contexto e decide com julgamento. Um fluxo de RD Marketing é automação. A LYNN escolhendo o melhor horário de envio é IA.</p>
+        </article>
+        <article class="card">
+          <h3>Chatbot ≠ Agente de IA</h3>
+          <p><strong>Chatbot</strong> tradicional segue script: "digite 1 para X". <strong>Agente de IA</strong> entende linguagem natural, acessa sistemas e age. O MCP transforma uma IA em agente real.</p>
+        </article>
+        <article class="card">
+          <h3>API ≠ MCP</h3>
+          <p>Os dois conectam sistemas. Mas a <strong>API</strong> exige código, autenticação técnica e documentação. O <strong>MCP</strong> é uma camada por cima: o usuário fala em texto, a IA chama as APIs por baixo.</p>
+        </article>
+        <article class="card">
+          <h3>Servidor ≠ Cliente</h3>
+          <p>O <strong>servidor MCP</strong> fica do lado do produto (RD Station). O <strong>cliente MCP</strong> fica do lado da IA (Claude Desktop, n8n). Servidor "responde", cliente "pergunta".</p>
+        </article>
+        <article class="card">
+          <h3>Modelo ≠ Aplicativo</h3>
+          <p><strong>Modelo</strong> é o cérebro (GPT-4, Claude 4.7, Gemini). <strong>Aplicativo</strong> é a interface (ChatGPT, Claude Desktop, Gemini app). Um modelo pode estar em vários apps, e um app pode usar vários modelos.</p>
+        </article>
+        <article class="card">
+          <h3>Tool ≠ Plugin</h3>
+          <p>No padrão MCP, <strong>tool</strong> é cada ação disponível (criar, listar, atualizar). <strong>Plugin</strong> era o termo antigo do ChatGPT para integrações. MCP substitui o conceito de plugin com mais segurança e portabilidade.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--cta">
+    <div class="container">
+      <h2>Agora que o vocabulário está claro?</h2>
+      <p class="lead-secondary">Volte para a explicação do MCP, comece a usar com prompts prontos ou vá direto para o recurso do produto que mais usa.</p>
+      <div class="hero-cta center-cta">
+        <a href="o-que-e-mcp.html" class="btn btn-primary">Ver explicação do MCP</a>
+        <a href="skills-mcp.html" class="btn-link">Pegar prompts prontos →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <span class="logo">RD Station <span class="logo-tag">· IA</span></span>
+        <p>Faz parte da TOTVS. Software para Marketing, Vendas e Atendimento.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>Começando</h4>
+          <a href="o-que-e-mcp.html">O que é MCP</a>
+          <a href="glossario.html">Glossário</a>
+          <a href="skills-mcp.html">Skills prontas</a>
+        </div>
+        <div>
+          <h4>Por produto</h4>
+          <a href="mcp-crm.html">CRM</a>
+          <a href="mcp-marketing.html">Marketing</a>
+          <a href="mcp-conversas.html">Conversas</a>
+        </div>
+        <div>
+          <h4>Estratégia</h4>
+          <a href="mcp-multiproduto.html">IA Multiproduto</a>
+          <a href="ia-mercado-vs-rd.html">Mercado vs RD</a>
+        </div>
+      </div>
+      <p class="text-muted">&copy; 2026 RD Station / TOTVS · Hotsite em construção · conteúdo sujeito à revisão</p>
+    </div>
+  </footer>
+
+</body>
+</html>
