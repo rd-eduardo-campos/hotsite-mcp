@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#002233" />
 
-  <title>Skills: prompts prontos para usar com o MCP da RD · RD Station</title>
-  <meta name="description" content="Coletânea de prompts prontos para Claude, ChatGPT e outros agentes conectados ao MCP da RD Station. Por produto, por papel e por momento — copie e use." />
+  <title>Skills MCP — RD Station · biblioteca de fluxos agênticos</title>
+  <meta name="description" content="Biblioteca de skills agênticas para o MCP da RD Station. Combinações documentadas de ferramentas MCP que executam fluxos completos: diagnóstico, operação em lote, ciclo de lead, cross-channel." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,7 +21,7 @@
       <a href="index.html" class="logo">RD Station <span class="logo-tag">· IA</span></a>
       <nav class="nav">
         <a href="o-que-e-mcp.html" class="nav-link">O que é MCP</a>
-        <a href="mcp-multiproduto.html" class="nav-link">Multiproduto</a>
+        <a href="prompts-mcp.html" class="nav-link">Prompts</a>
         <a href="skills-mcp.html" class="nav-link">Skills</a>
         <a href="glossario.html" class="nav-link">Glossário</a>
         <a href="https://mcp.rdstationmentor.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Conectar agora</a>
@@ -39,225 +39,823 @@
 
   <section class="hero">
     <div class="container">
-      <span class="badge badge-primary">Mão na massa</span>
-      <h1>Prompts prontos para usar com o <em>MCP da RD</em></h1>
-      <p class="lead">Coletânea de prompts testados, organizados por papel (vendedor, gestor, analista), por produto (CRM, Marketing, Conversas) e por momento (rotina, diagnóstico, decisão). Cole na sua IA e adapte ao seu cenário.</p>
-      <div class="hero-cta">
-        <a href="#rotina" class="btn btn-primary">Começar pelos da rotina</a>
-        <a href="#dicas" class="btn-link">Dicas para escrever bons prompts →</a>
+      <span class="badge badge-primary">Em construção · download em breve</span>
+      <h1>Skills MCP — <em>fluxos agênticos</em> prontos</h1>
+      <p class="lead">Diferente de um prompt único, uma <strong>skill</strong> combina várias ferramentas do MCP em sequência. Sua IA deixa de responder pergunta e passa a executar uma rotina inteira: lista, decide, age, registra. Esta biblioteca documenta as skills que a RD Station está construindo.</p>
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.5-3.5"/></svg>
+        <input id="search" class="search-input" type="text" placeholder="Buscar skill (ex: pipeline, reativação, fila...)" />
       </div>
     </div>
   </section>
 
-  <!-- Skills da rotina -->
-  <section id="rotina" class="section">
+  <!-- Aviso -->
+  <section class="filters">
     <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Skills da rotina diária</span>
-        <h2>Os prompts mais usados — para começar a tirar valor no primeiro dia</h2>
-        <p class="lead-secondary">Cinco prompts que cobrem o que a maioria dos times pergunta toda manhã. Cole, ajuste o nome do funil/segmentação/campanha e use.</p>
+      <div class="filter-row">
+        <span class="filter-label">Perfil de acesso</span>
+        <div class="filter-chips">
+          <button class="filter-chip" data-filter="perfil-admin">👑 Administrador</button>
+          <button class="filter-chip" data-filter="perfil-gestor">🧭 Gestor</button>
+          <button class="filter-chip" data-filter="perfil-operador">🛠️ Operador</button>
+        </div>
       </div>
-
-      <h3 class="group-title">Manhã do vendedor — radar do dia</h3>
-      <div class="prompt-box">Mostra as <strong>10 negociações</strong> que estão sob minha responsabilidade, ordenadas por valor, com a etapa atual e os dias sem atividade. Destaca as que estão paradas há mais de 7 dias.</div>
-
-      <div class="prompt-box">Quais <strong>tarefas vencem hoje</strong> e estão atribuídas a mim? Lista por horário, com link da negociação relacionada.</div>
-
-      <h3 class="group-title mt-7">Manhã do analista de marketing — saúde de fluxos</h3>
-      <div class="prompt-box">Quantos contatos <strong>entraram</strong> e quantos <strong>saíram</strong> dos meus fluxos ativos nas últimas 24h? Identifica fluxos com queda relevante e me sugere ações.</div>
-
-      <div class="prompt-box">Resumo das <strong>landing pages com mais conversões</strong> ontem. Compara com a média dos últimos 7 dias e mostra o que está acima do padrão.</div>
-
-      <h3 class="group-title mt-7">Manhã do coordenador de atendimento — radar de fila</h3>
-      <div class="prompt-box">Status atual da fila por departamento: quantos clientes aguardando, qual o TME de hoje vs ontem, e algum departamento fora do padrão?</div>
+      <div class="filter-row">
+        <span class="filter-label">Ferramenta conectada</span>
+        <div class="filter-chips">
+          <button class="filter-chip" data-filter="produto-crm">CRM</button>
+          <button class="filter-chip" data-filter="produto-marketing">Marketing</button>
+          <button class="filter-chip" data-filter="produto-conversas">Conversas</button>
+          <button class="filter-chip" data-filter="produto-multi">Multi-MCP</button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-counter"><strong id="counter">18</strong> de <span id="total">18</span> skills</span>
+        <button class="filter-reset" id="reset">Limpar filtros</button>
+      </div>
     </div>
   </section>
 
-  <!-- Skills de diagnóstico -->
+  <section class="marketplace">
+    <div class="container">
+
+      <div class="marketplace-banner">
+        <div class="marketplace-banner-icon">🚧</div>
+        <div class="marketplace-banner-content">
+          <h4>Skills em construção pela RD Station</h4>
+          <p>Esta biblioteca documenta as skills que a RD usa internamente nas operações com o MCP. O <strong>botão "Baixar .md" ainda não está ativo</strong> — quando os arquivos estiverem prontos, você poderá baixar a definição e usar com a sua IA (Claude Skills, ChatGPT Custom GPTs, agentes em n8n, etc.). Por enquanto, este catálogo serve como blueprint do que é possível combinar com as ferramentas do MCP.</p>
+        </div>
+      </div>
+
+      <div class="marketplace-grid" id="grid">
+
+        <!-- ============== CRM SKILLS ============== -->
+
+        <!-- Skill 1: Auditoria de Pipeline Semanal -->
+        <article class="skill-card" data-tags="perfil-gestor perfil-admin produto-crm">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="skill-card-title">Auditoria de Pipeline Semanal</h3>
+          <p class="skill-card-desc">Diagnóstico do funil de vendas pronto para a reunião semanal: distribuição por etapa, tempo médio, gargalo identificado e top motivos de perda do período.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="crm">funnel_list</code>
+              <code class="tool-pill" data-product="crm">funnel_stages_list</code>
+              <code class="tool-pill" data-product="crm">deals_list</code>
+              <code class="tool-pill" data-product="crm">lost_reasons_list</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Lista os funis de vendas ativos</li>
+              <li>Para o funil escolhido, lista todas as etapas</li>
+              <li>Para cada etapa, lista as negociações abertas</li>
+              <li>Calcula tempo médio de permanência por etapa</li>
+              <li>Lista motivos de perda do período</li>
+              <li>Devolve diagnóstico com gargalo e top 3 deals em risco</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> single-product · 6 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 2: Triagem de Negociações Frias -->
+        <article class="skill-card" data-tags="perfil-gestor perfil-operador produto-crm">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="skill-card-title">Triagem de Negociações Frias</h3>
+          <p class="skill-card-desc">Identifica deals abertos sem atividade há mais de X dias, cria tarefas de follow-up para o responsável e registra nota explicando a ação. Reduz vendas que esfriam por esquecimento.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="crm">deals_list</code>
+              <code class="tool-pill" data-product="crm">users_list</code>
+              <code class="tool-pill" data-product="crm">tasks_create</code>
+              <code class="tool-pill" data-product="crm">deals_notes_create</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Lista deals abertos sem atividade há mais de [X] dias</li>
+              <li>Para cada deal, identifica o responsável atual</li>
+              <li>Cria tarefa de follow-up vinculada (vencimento: amanhã)</li>
+              <li>Adiciona nota no deal documentando a ação</li>
+              <li>Devolve resumo do que foi feito por vendedor</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> single-product · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 3: Briefing da Carteira do Vendedor -->
+        <article class="skill-card" data-tags="perfil-operador perfil-gestor produto-crm">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="skill-card-title">Briefing da Carteira do Vendedor</h3>
+          <p class="skill-card-desc">Briefing executivo da carteira individual de um vendedor: deals abertos, tarefas pendentes, notas recentes dos top deals. Insumo para 1:1 ou planejamento do dia.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="crm">users_get</code>
+              <code class="tool-pill" data-product="crm">deals_list</code>
+              <code class="tool-pill" data-product="crm">tasks_list</code>
+              <code class="tool-pill" data-product="crm">deals_notes_list</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Recupera dados do vendedor pelo ID</li>
+              <li>Lista deals em aberto do vendedor</li>
+              <li>Lista tarefas pendentes atribuídas a ele</li>
+              <li>Para os top 3 deals, lista as notas mais recentes</li>
+              <li>Devolve briefing organizado em 3 blocos</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> single-product · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 4: Análise de Motivos de Perda -->
+        <article class="skill-card" data-tags="perfil-gestor perfil-admin produto-crm">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="skill-card-title">Análise de Motivos de Perda</h3>
+          <p class="skill-card-desc">Cruza deals perdidos com motivos cadastrados e busca notas associadas para entender padrões. Vai além do "quanto perdemos por X" — explica o porquê.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="crm">deals_list</code>
+              <code class="tool-pill" data-product="crm">lost_reasons_list</code>
+              <code class="tool-pill" data-product="crm">deals_notes_list</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Lista deals fechados como perdidos no período</li>
+              <li>Lista motivos de perda cadastrados</li>
+              <li>Agrupa deals por motivo, calcula valor total perdido</li>
+              <li>Para os top 3 motivos, busca notas dos deals associados</li>
+              <li>Identifica padrões qualitativos e devolve diagnóstico</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> single-product · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 5: Atualização de Etapa em Lote -->
+        <article class="skill-card" data-tags="perfil-gestor perfil-admin produto-crm">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="skill-card-title">Atualização de Etapa em Lote</h3>
+          <p class="skill-card-desc">Move múltiplas negociações de uma etapa para outra com critério configurável. Pede confirmação antes de executar e registra nota em cada deal afetado.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="crm">deals_list</code>
+              <code class="tool-pill" data-product="crm">deals_update</code>
+              <code class="tool-pill" data-product="crm">deals_notes_create</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Lista deals que atendem ao critério informado</li>
+              <li>Devolve preview da lista para confirmação humana</li>
+              <li>Após confirmação, atualiza a etapa de cada deal</li>
+              <li>Adiciona nota explicando a movimentação em lote</li>
+              <li>Devolve relatório de execução</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> single-product · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- ============== MARKETING SKILLS ============== -->
+
+        <!-- Skill 6: Diagnóstico de Funil de Marketing -->
+        <article class="skill-card" data-tags="perfil-gestor perfil-admin produto-marketing">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="skill-card-title">Diagnóstico de Funil de Marketing</h3>
+          <p class="skill-card-desc">Saúde do funil em uma única consulta: visitantes, contatos, oportunidades, vendas — cruzados com performance dos ativos de conversão. Pronto para reunião.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="marketing">funnel_analytics</code>
+              <code class="tool-pill" data-product="marketing">assets_analytics</code>
+              <code class="tool-pill" data-product="marketing">assets_funnel_analytics</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Pega métricas do funil no período</li>
+              <li>Pega métricas de performance dos ativos (LPs, forms, popups)</li>
+              <li>Pega análise de funil por ativo</li>
+              <li>Cruza dados e identifica a etapa com maior variação</li>
+              <li>Devolve leitura com diagnóstico e hipóteses</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> single-product · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 7: Auditoria Completa de Fluxo -->
+        <article class="skill-card" data-tags="perfil-operador perfil-gestor produto-marketing">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="skill-card-title">Auditoria Completa de Fluxo</h3>
+          <p class="skill-card-desc">Diagnostica a saúde de um fluxo de automação específico: configuração, quem entrou, quem chegou em cada ação, quem saiu. Aponta onde está o maior abandono.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="marketing">workflows_search</code>
+              <code class="tool-pill" data-product="marketing">workflow_get_details</code>
+              <code class="tool-pill" data-product="marketing">workflow_leads_started_list</code>
+              <code class="tool-pill" data-product="marketing">workflow_leads_at_action_list</code>
+              <code class="tool-pill" data-product="marketing">workflow_leads_exited_list</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Busca o fluxo pelo nome</li>
+              <li>Recupera configuração completa (ações, status, trigger)</li>
+              <li>Lista quem entrou no período</li>
+              <li>Para cada ação, lista quem chegou ali</li>
+              <li>Lista quem saiu (concluiu ou abandonou)</li>
+              <li>Calcula taxa de progressão e identifica abandono</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> single-product · 6 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 8: Performance de Emails por Período -->
+        <article class="skill-card" data-tags="perfil-operador perfil-gestor produto-marketing">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="skill-card-title">Performance de Emails por Período</h3>
+          <p class="skill-card-desc">Ranking de emails enviados no período por taxa de abertura e clique. Cruza envios via campanha e via fluxo de automação no mesmo relatório.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="marketing">emails_search</code>
+              <code class="tool-pill" data-product="marketing">email_get_by_id</code>
+              <code class="tool-pill" data-product="marketing">emails_by_campaign_analytics</code>
+              <code class="tool-pill" data-product="marketing">emails_by_workflow_analytics</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Busca emails enviados no período</li>
+              <li>Para cada email, recupera metadados (assunto, segmentação, horário)</li>
+              <li>Pega métricas dos emails enviados via campanha</li>
+              <li>Pega métricas dos emails enviados via fluxo</li>
+              <li>Devolve ranking unificado com top performers</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> single-product · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 9: Inscrição em Lote em Fluxo -->
+        <article class="skill-card" data-tags="perfil-operador perfil-gestor produto-marketing">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="skill-card-title">Inscrição em Lote em Fluxo</h3>
+          <p class="skill-card-desc">Inscreve todos os contatos de uma segmentação em um fluxo de nutrição, com tag de controle e confirmação prévia. Substitui o trabalho manual de copiar e colar listas.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="marketing">segmentation_list</code>
+              <code class="tool-pill" data-product="marketing">segmentation_contacts_list</code>
+              <code class="tool-pill" data-product="marketing">workflow_lead_enroll</code>
+              <code class="tool-pill" data-product="marketing">contact_tag_add</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Lista segmentações disponíveis</li>
+              <li>Lista contatos da segmentação alvo</li>
+              <li>Devolve preview (contagem + amostra) para confirmação</li>
+              <li>Inscreve cada contato no fluxo informado</li>
+              <li>Adiciona tag de controle em cada contato</li>
+              <li>Devolve relatório de execução</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> single-product · 6 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- ============== CONVERSAS SKILLS ============== -->
+
+        <!-- Skill 10: Radar de Atendimento em Tempo Real -->
+        <article class="skill-card" data-tags="perfil-operador perfil-gestor produto-conversas">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="conversas">Conversas</span>
+          </div>
+          <h3 class="skill-card-title">Radar de Atendimento em Tempo Real</h3>
+          <p class="skill-card-desc">Dashboard textual consolidado do estado atual da operação: fila, TME, TMA e bot. Detecta departamentos fora do padrão.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="conversas">queue_wait_count</code>
+              <code class="tool-pill" data-product="conversas">wait_time_today</code>
+              <code class="tool-pill" data-product="conversas">service_time_today</code>
+              <code class="tool-pill" data-product="conversas">bot_analytics</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Conta clientes em fila agora por departamento</li>
+              <li>Pega TME (tempo médio de espera) do dia</li>
+              <li>Pega TMA (tempo médio de atendimento) do dia</li>
+              <li>Pega métricas do chatbot do período</li>
+              <li>Devolve dashboard textual com flags de alerta</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> single-product · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 11: Análise de Campanha WhatsApp -->
+        <article class="skill-card" data-tags="perfil-gestor perfil-admin produto-conversas">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="conversas">Conversas</span>
+          </div>
+          <h3 class="skill-card-title">Análise de Campanha WhatsApp</h3>
+          <p class="skill-card-desc">Performance completa de uma campanha de WhatsApp: configuração, envios, entregas, leituras, erros e cliques em links. Insumo para decisão de continuidade.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="conversas">campaigns_list</code>
+              <code class="tool-pill" data-product="conversas">campaign_details</code>
+              <code class="tool-pill" data-product="conversas">campaign_stats</code>
+              <code class="tool-pill" data-product="conversas">campaign_link_stats</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Lista campanhas disponíveis na empresa</li>
+              <li>Recupera configuração da campanha alvo</li>
+              <li>Pega estatísticas de envio em tempo real</li>
+              <li>Pega estatísticas de cliques nos links</li>
+              <li>Devolve análise consolidada com comparativo a benchmark</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> single-product · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 12: Análise de Satisfação por Período -->
+        <article class="skill-card" data-tags="perfil-gestor perfil-admin produto-conversas">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="conversas">Conversas</span>
+          </div>
+          <h3 class="skill-card-title">Análise de Satisfação por Período</h3>
+          <p class="skill-card-desc">Cruza CSAT, tempos de atendimento e dados dos funcionários para identificar correlações entre tempos e satisfação. Vai além do número médio.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="conversas">reviews_average</code>
+              <code class="tool-pill" data-product="conversas">service_time_analytics</code>
+              <code class="tool-pill" data-product="conversas">employees_list</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Pega CSAT médio do período</li>
+              <li>Pega métricas de tempo (TMA, TME) do mesmo período</li>
+              <li>Lista funcionários ativos</li>
+              <li>Identifica correlações entre tempo e satisfação</li>
+              <li>Devolve diagnóstico com hipóteses</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> single-product · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- ============== MULTI-MCP SKILLS ============== -->
+
+        <!-- Skill 13: Lead Marketing → Deal CRM -->
+        <article class="skill-card" data-tags="perfil-operador perfil-gestor produto-multi">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="skill-card-title">Lead Marketing → Deal CRM</h3>
+          <p class="skill-card-desc">Pipeline de captura automatizado: pega lead do Marketing com todo o histórico de eventos, cria negociação no CRM com contexto e tarefa de primeira call. Replica o que o SDR fazia manualmente.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="marketing">get_contact_by_id_email</code>
+              <code class="tool-pill" data-product="marketing">get_contact_events</code>
+              <code class="tool-pill" data-product="crm">deals_create</code>
+              <code class="tool-pill" data-product="crm">deals_notes_create</code>
+              <code class="tool-pill" data-product="crm">tasks_create</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Marketing: pega dados do contato pelo email</li>
+              <li>Marketing: lista eventos do contato (materiais, formulários)</li>
+              <li>CRM: cria a negociação na etapa Prospecção</li>
+              <li>CRM: adiciona nota com o histórico de eventos do lead</li>
+              <li>CRM: cria tarefa de primeira call para 24h depois</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> multi-MCP · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 14: MQL Sem Deal → Lista para Comercial -->
+        <article class="skill-card" data-tags="perfil-gestor perfil-admin produto-multi">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="skill-card-title">MQL Sem Deal → Lista para Comercial</h3>
+          <p class="skill-card-desc">Cruza segmentação de MQL do Marketing com a base de deals do CRM e devolve só quem ainda não foi atacado pelo comercial. Endereça o gap clássico de passagem entre as áreas.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="marketing">segmentation_list</code>
+              <code class="tool-pill" data-product="marketing">segmentation_contacts_list</code>
+              <code class="tool-pill" data-product="crm">contacts_list</code>
+              <code class="tool-pill" data-product="crm">deals_list</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Marketing: lista segmentações disponíveis</li>
+              <li>Marketing: pega contatos da segmentação MQL</li>
+              <li>CRM: lista contatos para cruzar bases</li>
+              <li>CRM: para cada email da segmentação, verifica se tem deal</li>
+              <li>Devolve lista filtrada de quem está sem deal aberto</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> multi-MCP · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 15: Cliente VIP em Fila -->
+        <article class="skill-card" data-tags="perfil-gestor perfil-admin produto-multi">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="skill-card-title">Cliente VIP em Fila</h3>
+          <p class="skill-card-desc">Detecta clientes na fila do atendimento que têm deals abertos de alto valor no CRM. Permite priorizar manualmente quem está esperando antes de o problema escalar.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="conversas">queue_wait_count</code>
+              <code class="tool-pill" data-product="crm">contacts_list</code>
+              <code class="tool-pill" data-product="crm">deals_list</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Conversas: pega lista de clientes em fila agora</li>
+              <li>CRM: busca os contatos por email</li>
+              <li>CRM: para cada contato, lista deals em aberto</li>
+              <li>Filtra clientes com deal > [valor] aberto</li>
+              <li>Devolve lista priorizada para acionar a liderança</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> multi-MCP · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 16: Reativação de Carteira VIP -->
+        <article class="skill-card" data-tags="perfil-gestor perfil-admin produto-multi">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="skill-card-title">Reativação de Carteira VIP</h3>
+          <p class="skill-card-desc">Identifica clientes ganhos sem atividade recente, inscreve em fluxo de reativação no Marketing e registra a ação no CRM. Reativação orquestrada de cliente VIP.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="crm">deals_list</code>
+              <code class="tool-pill" data-product="crm">contacts_list</code>
+              <code class="tool-pill" data-product="marketing">workflow_lead_enroll</code>
+              <code class="tool-pill" data-product="marketing">contact_tag_add</code>
+              <code class="tool-pill" data-product="crm">deals_notes_create</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>CRM: lista deals ganhos há > [X] meses, sem atividade recente</li>
+              <li>CRM: identifica os contatos associados a esses deals</li>
+              <li>Marketing: inscreve cada contato no fluxo de reativação</li>
+              <li>Marketing: adiciona tag identificando a campanha</li>
+              <li>CRM: registra nota em cada deal documentando a ação</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> multi-MCP · 5 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 17: Diagnóstico 360 Mensal -->
+        <article class="skill-card" data-tags="perfil-admin produto-multi">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="skill-card-title">Diagnóstico 360 Mensal</h3>
+          <p class="skill-card-desc">Visão executiva integrada da operação: funil de marketing, performance comercial, saúde do atendimento. Cruza tudo em leitura única para reunião de S&OPS.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="marketing">funnel_analytics</code>
+              <code class="tool-pill" data-product="crm">deals_list</code>
+              <code class="tool-pill" data-product="crm">lost_reasons_list</code>
+              <code class="tool-pill" data-product="conversas">service_time_analytics</code>
+              <code class="tool-pill" data-product="conversas">reviews_average</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Marketing: métricas de funil do mês</li>
+              <li>CRM: deals criados, ganhos e perdidos no mês</li>
+              <li>CRM: top motivos de perda no período</li>
+              <li>Conversas: TMA, TME e volume do mês</li>
+              <li>Conversas: CSAT do mês</li>
+              <li>Cruza tudo apontando o maior gargalo da operação</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> multi-MCP · 6 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Skill 18: Auditoria de Campanha Multi-canal -->
+        <article class="skill-card" data-tags="perfil-gestor perfil-admin produto-multi">
+          <div class="skill-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="skill-card-title">Auditoria de Campanha Multi-canal</h3>
+          <p class="skill-card-desc">Performance cross-canal: a mesma campanha rodando em email (Marketing) e WhatsApp (Conversas) consolidada em um único relatório. Compara canais lado a lado.</p>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Ferramentas MCP usadas</div>
+            <div class="skill-tools">
+              <code class="tool-pill" data-product="marketing">campaigns_search</code>
+              <code class="tool-pill" data-product="marketing">emails_by_campaign_analytics</code>
+              <code class="tool-pill" data-product="conversas">campaigns_list</code>
+              <code class="tool-pill" data-product="conversas">campaign_stats</code>
+              <code class="tool-pill" data-product="conversas">campaign_link_stats</code>
+            </div>
+          </div>
+
+          <div class="skill-section">
+            <div class="skill-section-label">Passos da skill</div>
+            <ol class="skill-steps">
+              <li>Marketing: busca campanha pelo nome</li>
+              <li>Marketing: pega métricas de email da campanha</li>
+              <li>Conversas: busca campanha correspondente</li>
+              <li>Conversas: pega estatísticas de envio</li>
+              <li>Conversas: pega cliques em links</li>
+              <li>Consolida tudo em relatório único cross-canal</li>
+            </ol>
+          </div>
+
+          <div class="skill-card-footer">
+            <span class="skill-meta"><span class="skill-meta-dot"></span> multi-MCP · 6 passos</span>
+            <button class="download-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar .md
+              <span class="tooltip">Em breve — skill ainda não disponível para download</span>
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="empty-state" id="empty" style="display:none;">
+        <h3>Nenhuma skill encontrada</h3>
+        <p>Tente remover algum filtro ou alterar o termo de busca.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Quer contribuir? -->
   <section class="section section--alt">
     <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Skills de diagnóstico</span>
-        <h2>Quando você precisa entender o que está acontecendo</h2>
-        <p class="lead-secondary">Prompts mais profundos. A IA cruza dados, calcula tendência e devolve uma leitura — não apenas uma listagem.</p>
-      </div>
-
-      <h3 class="group-title">Diagnóstico de funil de marketing</h3>
-      <div class="prompt-box">Compara as <strong>taxas de conversão</strong> do funil de marketing (visitante → contato → oportunidade → venda) deste mês vs mês anterior. Identifica em qual etapa houve maior queda e sugere 3 hipóteses prováveis.</div>
-
-      <h3 class="group-title mt-7">Diagnóstico de pipeline comercial</h3>
-      <div class="prompt-box">Analisa meu funil de vendas atual: quantos deals em cada etapa, tempo médio de permanência por etapa, valor total. Identifica a etapa com maior gargalo e me mostra os 3 deals que mais tempo estão presos nessa etapa.</div>
-
-      <h3 class="group-title mt-7">Diagnóstico de atendimento</h3>
-      <div class="prompt-box">Mostra a evolução do <strong>CSAT</strong> e <strong>TMA</strong> nas últimas 4 semanas. Houve correlação? Algum departamento puxando a média para baixo? Identifica padrões.</div>
-
-      <h3 class="group-title mt-7">Diagnóstico cross-produto</h3>
-      <div class="prompt-box">Quero entender o impacto da campanha "<strong>Trial Pro Maio</strong>". Mostra quantos leads ela gerou (Marketing), quantos viraram deal (CRM) e como foi a taxa de atendimento desses leads (Conversas). Indica se a campanha está pagando o investimento.</div>
-    </div>
-  </section>
-
-  <!-- Skills de decisão -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Skills de decisão</span>
-        <h2>Quando você precisa decidir o próximo passo</h2>
-        <p class="lead-secondary">Prompts em que a IA não só informa — ela propõe ação. Use no momento de planejar a semana, reunião de S&OPS ou follow-up com a base.</p>
-      </div>
-
-      <h3 class="group-title">Decisão: priorização de leads quentes</h3>
-      <div class="prompt-box">Quais contatos da minha base têm <strong>score alto</strong>, abriram email nos últimos 7 dias, mas ainda não foram contatados pelo comercial? Lista os top 10 com o motivo de cada um estar quente.</div>
-
-      <h3 class="group-title mt-7">Decisão: reativação de carteira</h3>
-      <div class="prompt-box">Identifica clientes <strong>sem atividade no CRM há mais de 60 dias</strong> com ticket médio acima de R$ 3k. Para cada um, mostra a última interação e sugere uma abordagem de reativação personalizada.</div>
-
-      <h3 class="group-title mt-7">Decisão: ajuste de meta</h3>
-      <div class="prompt-box">Considerando o ritmo atual de geração de leads, taxa de conversão por etapa e ticket médio dos últimos 90 dias, qual a projeção de fechamento do trimestre? Compara com a meta e mostra o gap.</div>
-
-      <h3 class="group-title mt-7">Decisão: escalação de atendimento</h3>
-      <div class="prompt-box">Mostra clientes na fila agora que têm <strong>deal aberto no CRM</strong> acima de R$ 20k. Quero acionar o gerente para escalar manualmente o atendimento desses casos.</div>
-    </div>
-  </section>
-
-  <!-- Skills de ação -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Skills de ação</span>
-        <h2>Quando você precisa executar — não só consultar</h2>
-        <p class="lead-secondary">Prompts onde a IA age no seu lugar: cria, atualiza, inscreve, registra. Antes de usar, garanta que a IA tem permissão de escrita.</p>
-      </div>
-
-      <h3 class="group-title">Ação no CRM</h3>
-      <div class="prompt-box">Cria uma negociação para a <strong>Empresa Alfa</strong> no funil Enterprise, etapa Prospecção, valor R$ 25.000, responsável Camila Mendes. Adiciona uma nota com a origem "Indicação do parceiro X" e cria uma tarefa de ligação para amanhã às 9h.</div>
-
-      <div class="prompt-box">Move a negociação da <strong>Empresa Beta</strong> da etapa de Negociação para Fechada/Ganha. Registra o motivo (preço competitivo) e cria uma tarefa de onboarding para o time de implementação.</div>
-
-      <h3 class="group-title mt-7">Ação no Marketing</h3>
-      <div class="prompt-box">Inscreve os contatos da segmentação <strong>"Leads MQL Setembro"</strong> no fluxo "Nutrição Pro Avançado" e me confirma quantos foram inscritos.</div>
-
-      <div class="prompt-box">Adiciona a tag <strong>"Evento RD Summit 2026"</strong> em todos os contatos que se cadastraram via formulário "Inscrição Summit".</div>
-
-      <h3 class="group-title mt-7">Ação cross-produto</h3>
-      <div class="prompt-box">Para cada um dos 20 leads novos que entraram pelo formulário "Demo Trial Pro" essa semana: 1) cria deal no CRM (etapa Prospecção, responsável: rotativo), 2) inscreve no fluxo "Onboarding Trial" do Marketing, 3) cria tarefa de primeira call para 24h depois.</div>
-    </div>
-  </section>
-
-  <!-- Skills por papel -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Por papel na operação</span>
-        <h2>Skills organizadas por quem mais usa cada uma</h2>
-        <p class="lead-secondary">Se o seu papel não estiver listado, use as combinações como ponto de partida e adapte.</p>
-      </div>
-
-      <div class="grid-3">
-        <article class="card">
-          <h3>Vendedor (closer)</h3>
-          <p><strong>Skills favoritas:</strong></p>
-          <ul class="bullet-list">
-            <li>Radar do dia (deals + tarefas)</li>
-            <li>Priorização de leads quentes</li>
-            <li>Registro de call por voz</li>
-            <li>Próximos passos sugeridos</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>SDR / Pré-vendas</h3>
-          <p><strong>Skills favoritas:</strong></p>
-          <ul class="bullet-list">
-            <li>Lista de leads MQL sem contato</li>
-            <li>Histórico do lead (marketing + CRM)</li>
-            <li>Inscrição em fluxo de nutrição</li>
-            <li>Criação de deal a partir de form</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Coordenador de vendas</h3>
-          <p><strong>Skills favoritas:</strong></p>
-          <ul class="bullet-list">
-            <li>Diagnóstico de pipeline</li>
-            <li>Performance individual do time</li>
-            <li>Motivos de perda da semana</li>
-            <li>Projeção de fechamento</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Analista de marketing</h3>
-          <p><strong>Skills favoritas:</strong></p>
-          <ul class="bullet-list">
-            <li>Saúde de fluxos ativos</li>
-            <li>Performance de LPs e forms</li>
-            <li>Engajamento por segmentação</li>
-            <li>Cruzamento com pipeline</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Coordenador de marketing</h3>
-          <p><strong>Skills favoritas:</strong></p>
-          <ul class="bullet-list">
-            <li>Diagnóstico de funil</li>
-            <li>Impacto de campanha por canal</li>
-            <li>Comparativo período vs período</li>
-            <li>Decisão de orçamento por canal</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Coordenador de atendimento / CX</h3>
-          <p><strong>Skills favoritas:</strong></p>
-          <ul class="bullet-list">
-            <li>Radar de fila e TME</li>
-            <li>CSAT semanal por departamento</li>
-            <li>Performance de chatbot</li>
-            <li>Clientes VIP em atendimento</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Dicas -->
-  <section id="dicas" class="section section--alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Como escrever bons prompts</span>
-        <h2>Sete dicas para a IA te responder melhor</h2>
-      </div>
-
-      <div class="grid-2">
-        <article class="card">
-          <h3>1. Seja específico no recorte</h3>
-          <p>Em vez de "mostra minhas negociações", peça "negociações no funil Enterprise, acima de R$ 30k, com mais de 15 dias sem atividade". A IA filtra com precisão.</p>
-        </article>
-        <article class="card">
-          <h3>2. Diga o formato da resposta</h3>
-          <p>"Em tabela", "como lista numerada", "em parágrafo único". Sem isso, a IA escolhe — e nem sempre é o formato que você quer.</p>
-        </article>
-        <article class="card">
-          <h3>3. Peça leitura, não só dado</h3>
-          <p>Adicione "me dá a leitura desse número" ou "qual o insight aqui?". A IA passa de listadora a analista, pegando padrões que você ignoraria.</p>
-        </article>
-        <article class="card">
-          <h3>4. Use comparações temporais</h3>
-          <p>Sempre compare "este mês vs mês anterior" ou "últimos 30 dias vs 30 dias anteriores". Comparação é o que transforma dado em decisão.</p>
-        </article>
-        <article class="card">
-          <h3>5. Encadeie pedidos</h3>
-          <p>"Primeiro lista, depois para cada um dessa lista busca X, depois cria Y no CRM". A IA executa em sequência, sem você precisar fazer um pedido por vez.</p>
-        </article>
-        <article class="card">
-          <h3>6. Confira antes de ações de escrita</h3>
-          <p>Antes de pedir "cria/atualiza/exclui", peça "me mostra exatamente o que vai fazer antes de executar". Especialmente para ações em lote.</p>
-        </article>
-        <article class="card">
-          <h3>7. Use linguagem natural — sem jargão</h3>
-          <p>Não precisa decorar nomes de tools. "Os leads quentes da minha base" é suficiente — a IA encontra a tool certa. Fale como falaria com um colega.</p>
-        </article>
-        <article class="card">
-          <h3>8. Itere</h3>
-          <p>Se a primeira resposta não foi como esperado, ajuste e peça de novo. "Refaz, mas mostrando só os top 5" ou "agrupa por canal de origem". A IA aprende dentro da conversa.</p>
-        </article>
+      <div class="section-header text-center">
+        <span class="eyebrow">No futuro</span>
+        <h2>De biblioteca interna a marketplace público</h2>
+        <p class="lead-secondary">A RD Station vai liberar as skills que usa internamente no dia a dia para que o mercado também possa adotá-las. Quando os arquivos `.md` estiverem prontos, o botão de download passa a funcionar e você poderá importar para Claude Skills, ChatGPT Custom GPTs, n8n, Make ou qualquer agente compatível com MCP.</p>
       </div>
     </div>
   </section>
@@ -265,11 +863,11 @@
   <!-- CTA -->
   <section class="section section--cta">
     <div class="container">
-      <h2>Tem um prompt que funciona muito bem na sua operação?</h2>
-      <p class="lead-secondary">Esta página vai crescer com a contribuição dos times. Em breve teremos um formulário para submissão de prompts validados pela comunidade RD.</p>
+      <h2>Enquanto as skills não saem, comece pelos prompts</h2>
+      <p class="lead-secondary">A biblioteca de Prompts já está pronta — 45 prompts copiáveis por perfil de acesso e ferramenta conectada.</p>
       <div class="hero-cta center-cta">
-        <a href="mcp-multiproduto.html" class="btn btn-primary">Ver fluxos multiproduto</a>
-        <a href="o-que-e-mcp.html" class="btn-link">Voltar à explicação do MCP →</a>
+        <a href="prompts-mcp.html" class="btn btn-primary">Ver biblioteca de Prompts</a>
+        <a href="o-que-e-mcp.html" class="btn-link">O que é o MCP? →</a>
       </div>
     </div>
   </section>
@@ -285,7 +883,8 @@
           <h4>Começando</h4>
           <a href="o-que-e-mcp.html">O que é MCP</a>
           <a href="glossario.html">Glossário</a>
-          <a href="skills-mcp.html">Skills prontas</a>
+          <a href="prompts-mcp.html">Prompts</a>
+          <a href="skills-mcp.html">Skills</a>
         </div>
         <div>
           <h4>Por produto</h4>
@@ -302,6 +901,64 @@
       <p class="text-muted">&copy; 2026 RD Station / TOTVS · Hotsite em construção · conteúdo sujeito à revisão</p>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const cards = document.querySelectorAll('.skill-card');
+      const filterChips = document.querySelectorAll('.filter-chip');
+      const searchInput = document.querySelector('#search');
+      const counterEl = document.querySelector('#counter');
+      const totalEl = document.querySelector('#total');
+      const resetBtn = document.querySelector('#reset');
+      const emptyState = document.querySelector('#empty');
+
+      totalEl.textContent = cards.length;
+
+      function activeByGroup() {
+        const groups = { perfil: new Set(), produto: new Set() };
+        filterChips.forEach(chip => {
+          if (chip.classList.contains('active')) {
+            const f = chip.dataset.filter;
+            const group = f.split('-')[0];
+            if (groups[group]) groups[group].add(f);
+          }
+        });
+        return groups;
+      }
+
+      function applyFilters() {
+        const search = searchInput.value.toLowerCase().trim();
+        const active = activeByGroup();
+        let visible = 0;
+        cards.forEach(card => {
+          const tags = card.dataset.tags.split(' ');
+          const matchPerfil = active.perfil.size === 0 || [...active.perfil].some(f => tags.includes(f));
+          const matchProduto = active.produto.size === 0 || [...active.produto].some(f => tags.includes(f));
+          const matchSearch = !search || card.innerText.toLowerCase().includes(search);
+          const show = matchPerfil && matchProduto && matchSearch;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        counterEl.textContent = visible;
+        emptyState.style.display = visible === 0 ? '' : 'none';
+      }
+
+      filterChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chip.classList.toggle('active');
+          applyFilters();
+        });
+      });
+
+      searchInput.addEventListener('input', applyFilters);
+
+      resetBtn.addEventListener('click', () => {
+        filterChips.forEach(chip => chip.classList.remove('active'));
+        searchInput.value = '';
+        applyFilters();
+      });
+    })();
+  </script>
 
 </body>
 </html>
