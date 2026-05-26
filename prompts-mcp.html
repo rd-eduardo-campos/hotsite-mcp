@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#002233" />
+
+  <title>Prompts MCP — RD Station · biblioteca por perfil e ferramenta</title>
+  <meta name="description" content="Biblioteca de prompts prontos para usar com o MCP da RD Station. Filtre por perfil de acesso (Administrador, Gestor, Operador) e por ferramenta conectada (CRM, Marketing, Conversas). Copie e cole na sua IA favorita." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="_styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">RD Station <span class="logo-tag">· IA</span></a>
+      <nav class="nav">
+        <a href="o-que-e-mcp.html" class="nav-link">O que é MCP</a>
+        <a href="prompts-mcp.html" class="nav-link">Prompts</a>
+        <a href="skills-mcp.html" class="nav-link">Skills</a>
+        <a href="glossario.html" class="nav-link">Glossário</a>
+        <a href="https://mcp.rdstationmentor.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Conectar agora</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="page-nav">
+    <div class="container">
+      <a href="index.html">Início</a>
+      <span class="page-nav-sep">›</span>
+      <span>Prompts</span>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <span class="badge badge-primary">Biblioteca de prompts</span>
+      <h1>Prompts prontos para o <em>MCP da RD Station</em></h1>
+      <p class="lead">Copie e cole na sua IA favorita. Filtre por <strong>perfil de acesso</strong> dentro da RD Station (Administrador, Gestor, Operador) e pela <strong>ferramenta MCP</strong> que você conectou. Tudo em português, testado, pronto para usar.</p>
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.5-3.5"/></svg>
+        <input id="search" class="search-input" type="text" placeholder="Buscar por palavra-chave (ex: funil, fila, taxa, deal...)" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Filtros sticky -->
+  <section class="filters">
+    <div class="container">
+      <div class="filter-row">
+        <span class="filter-label">Perfil de acesso</span>
+        <div class="filter-chips">
+          <button class="filter-chip" data-filter="perfil-admin">👑 Administrador</button>
+          <button class="filter-chip" data-filter="perfil-gestor">🧭 Gestor</button>
+          <button class="filter-chip" data-filter="perfil-operador">🛠️ Operador</button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Ferramenta conectada</span>
+        <div class="filter-chips">
+          <button class="filter-chip" data-filter="produto-crm">CRM</button>
+          <button class="filter-chip" data-filter="produto-marketing">Marketing</button>
+          <button class="filter-chip" data-filter="produto-conversas">Conversas</button>
+          <button class="filter-chip" data-filter="produto-multi">Multi-MCP</button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-counter"><strong id="counter">45</strong> de <span id="total">45</span> prompts</span>
+        <button class="filter-reset" id="reset">Limpar filtros</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marketplace -->
+  <section class="marketplace">
+    <div class="container">
+
+      <div class="marketplace-banner">
+        <div class="marketplace-banner-icon">💡</div>
+        <div class="marketplace-banner-content">
+          <h4>Como funciona</h4>
+          <p>Cada prompt mostra <strong>quem pode executá-lo</strong> (perfil de acesso necessário dentro da RD Station) e <strong>qual MCP precisa estar conectado</strong>. Adapte os valores entre colchetes <code>[ ]</code> ao seu cenário antes de colar na IA.</p>
+        </div>
+      </div>
+
+      <div class="marketplace-grid" id="grid">
+
+        <!-- === OPERADOR · CRM === -->
+        <article class="prompt-card" data-tags="perfil-operador produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Radar do meu dia: deals + tarefas</h3>
+          <pre class="prompt-card-text">Mostra as negociações sob minha responsabilidade ordenadas por valor decrescente, com etapa atual e dias sem atividade. Em seguida, lista as tarefas que vencem hoje atribuídas a mim, organizadas por horário.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Rotina diária</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Meus deals parados há mais de 7 dias</h3>
+          <pre class="prompt-card-text">Lista as 10 negociações sob minha responsabilidade que estão paradas há mais de 7 dias, ordenadas por valor decrescente. Para cada uma, mostra a última nota registrada.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Histórico completo de um contato</h3>
+          <pre class="prompt-card-text">Me passa o histórico completo do contato [email@empresa.com]: todas as negociações abertas e fechadas, notas registradas, tarefas e produtos associados. Em seguida, sugere a melhor abordagem para a próxima conversa.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Criar negociação com nota e tarefa</h3>
+          <pre class="prompt-card-text">Cria uma negociação para a empresa [Nome da empresa], etapa Prospecção, valor R$ [valor], responsável [nome do usuário]. Adiciona uma nota com [contexto da conversa] e cria uma tarefa de ligação para amanhã às 10h.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Ação</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Avançar negociação para próxima etapa</h3>
+          <pre class="prompt-card-text">Move a negociação [ID ou nome da empresa] para a etapa [nome da etapa] e adiciona uma nota com o motivo da mudança: [breve explicação].</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Ação</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Registrar resumo de call em negociação</h3>
+          <pre class="prompt-card-text">Adiciona uma nota na negociação [ID ou nome da empresa] com este resumo da call: [transcrição ou resumo]. Em seguida, cria uma tarefa de follow-up para [data] com o próximo passo combinado: [descrição].</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Ação</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Fechar negociação como ganha</h3>
+          <pre class="prompt-card-text">Move a negociação [ID ou nome da empresa] para Ganha. Adiciona uma nota com o motivo do fechamento e cria uma tarefa de onboarding para o time de implementação amanhã.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Ação</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <!-- === GESTOR / ADMINISTRADOR · CRM === -->
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Diagnóstico completo do pipeline</h3>
+          <pre class="prompt-card-text">Analisa o funil de vendas do time: quantos deals em cada etapa, tempo médio de permanência por etapa, valor total. Identifica a etapa com maior gargalo e mostra os 3 deals que mais tempo estão presos nessa etapa.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Performance individual do time comercial</h3>
+          <pre class="prompt-card-text">Para cada vendedor do time, mostra: deals abertos, valor total no funil, deals ganhos no mês, deals perdidos no mês. Ordena por valor de pipeline decrescente e destaca quem está abaixo da média.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Top 5 motivos de perda do trimestre</h3>
+          <pre class="prompt-card-text">Quais foram os top 5 motivos de perda dos negócios fechados como perdidos nos últimos 90 dias? Para cada motivo, mostra o número de deals, valor total perdido e ticket médio.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Top 10 negociações abertas por valor</h3>
+          <pre class="prompt-card-text">Lista os top 10 deals abertos por valor, com responsável, etapa atual e dias na etapa. Identifica quais precisam de atenção da liderança esta semana.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Decisão</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Ticket médio por funil de vendas</h3>
+          <pre class="prompt-card-text">Para cada funil de vendas ativo, mostra: número de deals abertos, valor total, ticket médio. Compara com o trimestre anterior e indica qual funil está mais saudável.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-admin produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Saúde executiva do funil comercial</h3>
+          <pre class="prompt-card-text">Diagnóstico executivo do funil: valor total aberto, conversão por etapa, tempo médio de fechamento, top origens, top motivos de perda. Compara com o mesmo período do ano anterior e devolve leitura.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Projeção de fechamento do trimestre</h3>
+          <pre class="prompt-card-text">Considerando o pipeline atual, a taxa histórica de conversão por etapa e o tempo médio de fechamento, projeta quanto vamos fechar até o fim do trimestre. Compara com a meta e mostra o gap.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Decisão</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Carteira de clientes em risco de churn</h3>
+          <pre class="prompt-card-text">Identifica clientes com deal ganho nos últimos 12 meses, sem atividade no CRM há mais de 60 dias e ticket médio acima de R$ [valor]. Para cada um, mostra a última interação registrada.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Decisão</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-crm">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="crm">CRM</span>
+          </div>
+          <h3 class="prompt-card-title">Distribuir negociações em lote</h3>
+          <pre class="prompt-card-text">Distribui as [N] negociações novas (etapa Prospecção, sem responsável) entre os vendedores ativos do time, em rodízio equilibrado. Me devolve a lista do que foi distribuído para quem.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Ação</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <!-- === OPERADOR · MARKETING === -->
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-marketing">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="prompt-card-title">Materiais consumidos por um contato</h3>
+          <pre class="prompt-card-text">Lista todos os eventos do contato [email@empresa.com]: materiais ricos baixados, formulários preenchidos, emails abertos. Me dá um perfil de interesse para usar na próxima conversa.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-marketing">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="prompt-card-title">Saúde dos fluxos de automação ativos</h3>
+          <pre class="prompt-card-text">Para cada fluxo de automação ativo, mostra: contatos que entraram nas últimas 24h, contatos que saíram nas últimas 24h, taxa de progressão. Identifica fluxos com queda relevante de engajamento.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Rotina diária</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-marketing">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="prompt-card-title">Top landing pages por conversão</h3>
+          <pre class="prompt-card-text">Lista as landing pages com mais conversões nos últimos 7 dias. Para cada uma, mostra: visitas, conversões, taxa de conversão. Compara com a média histórica e indica anomalias.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Rotina diária</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-marketing">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="prompt-card-title">Engajamento de uma segmentação</h3>
+          <pre class="prompt-card-text">Para a segmentação [nome da segmentação]: número total de contatos, etapa de funil em que cada um está, contatos com as tags [tag X] e [tag Y]. Identifica perfis de maior engajamento.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-marketing">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="prompt-card-title">Top emails por taxa de abertura</h3>
+          <pre class="prompt-card-text">Lista os 10 emails enviados no último mês com maior taxa de abertura. Para cada um, mostra: assunto, segmentação, taxa de abertura, taxa de clique, horário de envio. Identifica padrões nos top performers.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-marketing">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="prompt-card-title">Inscrever segmentação em fluxo</h3>
+          <pre class="prompt-card-text">Inscreve todos os contatos da segmentação [nome] no fluxo [nome do fluxo]. Antes de executar, me confirma quantos contatos serão inscritos e me mostra a configuração do fluxo.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Ação</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-marketing">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="prompt-card-title">Tagear contatos de evento ou formulário</h3>
+          <pre class="prompt-card-text">Adiciona a tag [nome da tag] em todos os contatos cadastrados via formulário [nome do formulário] nos últimos 30 dias. Me devolve a contagem antes e depois da operação.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Ação</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <!-- === GESTOR / ADMIN · MARKETING === -->
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-marketing">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="prompt-card-title">Diagnóstico do funil de marketing</h3>
+          <pre class="prompt-card-text">Compara as taxas de conversão do funil (visitante → contato → oportunidade → venda) deste mês vs mês anterior. Identifica em qual etapa houve maior queda e sugere 3 hipóteses prováveis.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-marketing">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="prompt-card-title">Auditoria de fluxo de automação</h3>
+          <pre class="prompt-card-text">Auditoria completa do fluxo [nome]: configuração atual, número de entradas, saídas e contatos parados em cada ação. Identifica onde está o maior abandono e sugere ajustes.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-marketing">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="prompt-card-title">Top assets para escalar próximos lançamentos</h3>
+          <pre class="prompt-card-text">Quais formulários, landing pages e pop-ups tiveram a maior taxa de conversão no último trimestre? Quero priorizar os modelos que mais escalam para os próximos lançamentos.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Decisão</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-admin produto-marketing">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="marketing">Marketing</span>
+          </div>
+          <h3 class="prompt-card-title">Saúde executiva do marketing</h3>
+          <pre class="prompt-card-text">Diagnóstico executivo: contatos gerados no mês, conversão por etapa do funil, top 5 LPs por conversão, top 5 emails por engajamento, fluxos com melhor performance. Compara com mês anterior e devolve leitura.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <!-- === OPERADOR · CONVERSAS === -->
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-conversas">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="conversas">Conversas</span>
+          </div>
+          <h3 class="prompt-card-title">Radar de fila e TME agora</h3>
+          <pre class="prompt-card-text">Status atual do atendimento por departamento: quantos clientes na fila agora, TME (Tempo Médio de Espera) do dia, TMA (Tempo Médio de Atendimento) do dia. Destaca departamentos fora do padrão.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Rotina diária</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-conversas">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="conversas">Conversas</span>
+          </div>
+          <h3 class="prompt-card-title">Lista do time de atendimento ativo</h3>
+          <pre class="prompt-card-text">Lista todos os funcionários do atendimento. Para cada um, mostra ID e email — preciso para atribuir conversas manualmente ou criar relatórios por atendente.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Rotina</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <!-- === GESTOR / ADMIN · CONVERSAS === -->
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-conversas">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="conversas">Conversas</span>
+          </div>
+          <h3 class="prompt-card-title">Evolução semanal de TMA e TME</h3>
+          <pre class="prompt-card-text">Mostra a evolução do TMA e TME nas últimas 4 semanas, por departamento. Identifica quem está em tendência de melhora e quem está em deterioração — quero priorizar onde atuar.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-conversas">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="conversas">Conversas</span>
+          </div>
+          <h3 class="prompt-card-title">Performance do chatbot</h3>
+          <pre class="prompt-card-text">Como está a taxa de retenção do chatbot nas últimas 4 semanas? Total de atendimentos, % resolvidos pelo bot vs escalados para humano. A tendência é de crescimento, estabilidade ou queda?</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-conversas">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="conversas">Conversas</span>
+          </div>
+          <h3 class="prompt-card-title">CSAT semanal por departamento</h3>
+          <pre class="prompt-card-text">Mostra o CSAT médio do último mês por departamento. Compara com o mês anterior e identifica quem teve maior variação positiva e negativa.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-conversas">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="conversas">Conversas</span>
+          </div>
+          <h3 class="prompt-card-title">Performance de campanha WhatsApp ao vivo</h3>
+          <pre class="prompt-card-text">Status da campanha [nome] no Conversas: mensagens enviadas, entregues, lidas, erros, taxa de clique nos links. Acompanhamento em tempo real durante o disparo.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Rotina</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-conversas">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="conversas">Conversas</span>
+          </div>
+          <h3 class="prompt-card-title">Origem dos contatos no atendimento</h3>
+          <pre class="prompt-card-text">Mostra a distribuição de origem dos contatos no atendimento nos últimos 30 dias: anúncios, manual, formulário. Granularidade diária para entender qual canal está alimentando mais a operação.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-conversas">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="conversas">Conversas</span>
+          </div>
+          <h3 class="prompt-card-title">Correlação retenção do bot × CSAT</h3>
+          <pre class="prompt-card-text">Compara taxa de retenção do bot com CSAT e TMA no mesmo período. Existe correlação entre o quanto o bot retém e a satisfação do cliente? Em que departamento essa correlação é mais forte?</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Diagnóstico</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <!-- === MULTI-MCP === -->
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-multi">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="prompt-card-title">Lead novo do Marketing → Deal no CRM</h3>
+          <pre class="prompt-card-text">Para o lead [email@empresa.com] do Marketing: 1) busca os eventos dele (materiais baixados, formulários preenchidos); 2) cria uma negociação no CRM na etapa Prospecção com nota contendo esses eventos; 3) cria tarefa de primeira call para 24h depois.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Multi: Marketing + CRM</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-multi">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="prompt-card-title">Leads quentes ainda sem contato</h3>
+          <pre class="prompt-card-text">Quais contatos da minha base abriram email nos últimos 7 dias, têm tag de interesse e ainda não foram contatados pelo comercial (sem deal no CRM)? Lista os top 10 com o motivo de cada um estar quente.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Multi: Marketing + CRM</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-operador perfil-gestor produto-multi">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🛠️ Operador</span>
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="prompt-card-title">Leads que entraram no fim de semana</h3>
+          <pre class="prompt-card-text">Lista os contatos que entraram em qualquer formulário ou landing page do Marketing entre sexta 18h e segunda 8h. Para cada um, mostra origem e qual material consumiu. Quero atacar primeiro os mais quentes.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Multi: Marketing + CRM</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-multi">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="prompt-card-title">MQL ainda não contatados</h3>
+          <pre class="prompt-card-text">Lista os contatos da segmentação [Leads MQL] do Marketing que ainda não viraram negociação no CRM. Me passa nome, empresa, telefone e tags para repassar ao time de inside sales.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Multi: Marketing + CRM</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-multi">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="prompt-card-title">Clientes VIP em fila de atendimento</h3>
+          <pre class="prompt-card-text">Mostra os clientes na fila do atendimento agora que têm deal aberto no CRM acima de R$ [valor]. Quero acionar a liderança para escalar manualmente o atendimento desses casos.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Multi: Conversas + CRM</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-multi">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="prompt-card-title">Impacto cross-canal de uma campanha</h3>
+          <pre class="prompt-card-text">Quero entender o impacto da campanha [nome] no marketing e no comercial: quantos leads ela gerou, quantos viraram deal, qual valor entrou no funil, performance nos canais (email + WhatsApp). Compara com investimento estimado.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Multi: Marketing + CRM + Conversas</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-multi">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="prompt-card-title">Email vs WhatsApp da mesma campanha</h3>
+          <pre class="prompt-card-text">Para a campanha [nome] que rodou no email (Marketing) e no WhatsApp (Conversas): compara taxa de abertura, taxa de clique e conversões finais nos dois canais. Qual performou melhor?</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Multi: Marketing + Conversas</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-gestor perfil-admin produto-multi">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">🧭 Gestor</span>
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="prompt-card-title">Reativação orquestrada de base inativa</h3>
+          <pre class="prompt-card-text">Para a segmentação [nome]: inscreve todos os contatos no fluxo [nome do fluxo de reativação], adiciona tag "Reativação [Q/mês]" e me passa estimativa de quantos abrirão o primeiro email com base no histórico de engajamento da segmentação.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Multi: Marketing + CRM</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-admin produto-multi">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="prompt-card-title">Diagnóstico 360 do mês</h3>
+          <pre class="prompt-card-text">Diagnóstico integrado do mês: 1) Marketing — leads gerados, conversão de funil, top canais. 2) CRM — deals criados, ganhos, perdidos, ticket médio. 3) Conversas — TMA, TME, CSAT, volume. Cruza tudo em leitura única apontando onde está o maior gargalo da operação.</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Multi: Marketing + CRM + Conversas</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+        <article class="prompt-card" data-tags="perfil-admin produto-multi">
+          <div class="prompt-card-tags">
+            <span class="prompt-tag">👑 Admin</span>
+            <span class="prompt-tag" data-product="multi">Multi-MCP</span>
+          </div>
+          <h3 class="prompt-card-title">ROI estimado de campanha cross-canal</h3>
+          <pre class="prompt-card-text">Para a campanha [nome] que rodou em email, WhatsApp e LP: agrega visitantes, conversões, leads que viraram deal e receita gerada. Calcula ROI estimado com base no custo informado de R$ [valor].</pre>
+          <div class="prompt-card-footer">
+            <span class="prompt-card-meta">Multi: Marketing + CRM + Conversas</span>
+            <button class="copy-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="empty-state" id="empty" style="display:none;">
+        <h3>Nenhum prompt encontrado</h3>
+        <p>Tente remover algum filtro ou alterar o termo de busca.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--cta">
+    <div class="container">
+      <h2>Quer combinar várias ferramentas em uma operação agêntica?</h2>
+      <p class="lead-secondary">Prompts são instruções únicas. <strong>Skills</strong> são fluxos completos que combinam várias ferramentas MCP em sequência — agentes que executam tarefas inteiras, não só perguntas.</p>
+      <div class="hero-cta center-cta">
+        <a href="skills-mcp.html" class="btn btn-primary">Ver biblioteca de Skills</a>
+        <a href="o-que-e-mcp.html" class="btn-link">O que é o MCP? →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <span class="logo">RD Station <span class="logo-tag">· IA</span></span>
+        <p>Faz parte da TOTVS. Software para Marketing, Vendas e Atendimento.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>Começando</h4>
+          <a href="o-que-e-mcp.html">O que é MCP</a>
+          <a href="glossario.html">Glossário</a>
+          <a href="prompts-mcp.html">Prompts</a>
+          <a href="skills-mcp.html">Skills</a>
+        </div>
+        <div>
+          <h4>Por produto</h4>
+          <a href="mcp-crm.html">CRM</a>
+          <a href="mcp-marketing.html">Marketing</a>
+          <a href="mcp-conversas.html">Conversas</a>
+        </div>
+        <div>
+          <h4>Estratégia</h4>
+          <a href="mcp-multiproduto.html">IA Multiproduto</a>
+          <a href="ia-mercado-vs-rd.html">Mercado vs RD</a>
+        </div>
+      </div>
+      <p class="text-muted">&copy; 2026 RD Station / TOTVS · Hotsite em construção · conteúdo sujeito à revisão</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const cards = document.querySelectorAll('.prompt-card');
+      const filterChips = document.querySelectorAll('.filter-chip');
+      const searchInput = document.querySelector('#search');
+      const counterEl = document.querySelector('#counter');
+      const totalEl = document.querySelector('#total');
+      const resetBtn = document.querySelector('#reset');
+      const emptyState = document.querySelector('#empty');
+
+      totalEl.textContent = cards.length;
+
+      function activeByGroup() {
+        const groups = { perfil: new Set(), produto: new Set() };
+        filterChips.forEach(chip => {
+          if (chip.classList.contains('active')) {
+            const f = chip.dataset.filter;
+            const group = f.split('-')[0];
+            if (groups[group]) groups[group].add(f);
+          }
+        });
+        return groups;
+      }
+
+      function applyFilters() {
+        const search = searchInput.value.toLowerCase().trim();
+        const active = activeByGroup();
+        let visible = 0;
+        cards.forEach(card => {
+          const tags = card.dataset.tags.split(' ');
+          const matchPerfil = active.perfil.size === 0 || [...active.perfil].some(f => tags.includes(f));
+          const matchProduto = active.produto.size === 0 || [...active.produto].some(f => tags.includes(f));
+          const matchSearch = !search || card.innerText.toLowerCase().includes(search);
+          const show = matchPerfil && matchProduto && matchSearch;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        counterEl.textContent = visible;
+        emptyState.style.display = visible === 0 ? '' : 'none';
+      }
+
+      filterChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chip.classList.toggle('active');
+          applyFilters();
+        });
+      });
+
+      searchInput.addEventListener('input', applyFilters);
+
+      resetBtn.addEventListener('click', () => {
+        filterChips.forEach(chip => chip.classList.remove('active'));
+        searchInput.value = '';
+        applyFilters();
+      });
+
+      // Copy to clipboard
+      document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const text = btn.closest('.prompt-card').querySelector('.prompt-card-text').innerText;
+          navigator.clipboard.writeText(text).then(() => {
+            const original = btn.innerHTML;
+            btn.classList.add('copied');
+            btn.innerHTML = '✓ Copiado';
+            setTimeout(() => {
+              btn.classList.remove('copied');
+              btn.innerHTML = original;
+            }, 1800);
+          }).catch(() => {
+            btn.innerHTML = '❌ Falhou';
+            setTimeout(() => { btn.innerHTML = 'Copiar'; }, 1800);
+          });
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
